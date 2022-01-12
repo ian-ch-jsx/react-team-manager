@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render a team’s detail page 1`] = `
+<div>
+  <a
+    href="/teams"
+  >
+    Teams
+  </a>
+   » 
+  <span>
+    Rip City Kickers
+  </span>
+  <h1>
+    Rip City Kickers
+  </h1>
+  <p>
+    Portland
+    , 
+    OR
+  </p>
+  <p>
+    <a
+      href="/teams/1/edit"
+    >
+      Edit Team
+    </a>
+  </p>
+</div>
+`;

@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render a message with the user’s email if logged in 1`] = `
+<div>
+  <div
+    class="home"
+  >
+    <h1>
+      Hello, 
+      test@example.com
+      !
+    </h1>
+    <img
+      alt="leg kicking ball"
+      src="kick.png"
+      style="margin-top: 10px; width: 512px;"
+    />
+  </div>
+</div>
+`;
+
+exports[`should render a welcome message if not logged in 1`] = `
+<div>
+  <div
+    class="home"
+  >
+    <h2>
+      Welcome to the Kickball League Directory!
+    </h2>
+    <p>
+      Please 
+      <a
+        href="/sign-in"
+      >
+        sign in
+      </a>
+       to continue.
+    </p>
+  </div>
+</div>
+`;

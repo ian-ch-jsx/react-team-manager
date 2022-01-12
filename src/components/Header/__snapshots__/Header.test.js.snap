@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render a header 1`] = `
+<div>
+  <header>
+    <section>
+      <aside>
+        <a
+          href="/"
+        >
+          <img
+            alt="App logo"
+            src="kick-off.png"
+          />
+        </a>
+      </aside>
+      <nav>
+        <ul>
+          <li>
+            <a
+              aria-current="page"
+              class="active"
+              href="/"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="/teams"
+            >
+              Teams
+            </a>
+          </li>
+          <li>
+            <a
+              href="/sign-in"
+            >
+              Sign In
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+  </header>
+</div>
+`;
