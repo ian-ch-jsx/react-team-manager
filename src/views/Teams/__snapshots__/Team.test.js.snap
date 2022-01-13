@@ -19,12 +19,6 @@ exports[`should render a team’s detail page 1`] = `
     , 
     OR
   </p>
-  <p>
-    <a
-      href="/teams/1/edit"
-    >
-      Edit Team
-    </a>
-  </p>
+  <p />
 </div>
 `;
