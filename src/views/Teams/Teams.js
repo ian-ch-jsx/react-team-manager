@@ -36,7 +36,7 @@ function Teams() {
 
   return (
     <>
-      {currentUser && <Link to="/teams/new">Add New Team</Link>}
+      <Link to="/teams/new">Add New Team</Link>
       {loading ? (
         <Loading />
       ) : (
