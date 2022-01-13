@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Loading from '../../components/loading/Loading';
 import { getTeamById } from '../../services/teams';
+import { getUser } from '../../services/users';
 
 function Team({
   match: {
@@ -10,6 +11,13 @@ function Team({
 }) {
   const [team, setTeam] = useState({});
   const [loading, setLoading] = useState(true);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const session = getUser();
+
+    if (session?.user) setCurrentUser(session.user);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,9 +37,7 @@ function Team({
       <p>
         {team.city}, {team.state}
       </p>
-      <p>
-        <Link to={`/teams/${id}/edit`}>Edit Team</Link>
-      </p>
+      <p>{currentUser && <Link to={`/teams/${id}/edit`}>Edit Team</Link>}</p>
     </>
   );
 }

@@ -2,10 +2,18 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Loading from '../../components/loading/Loading';
 import { deleteTeamById, getTeams } from '../../services/teams';
+import { getUser } from '../../services/users';
 
 function Teams() {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const session = getUser();
+
+    if (session?.user) setCurrentUser(session.user);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +36,7 @@ function Teams() {
 
   return (
     <>
-      <Link to="/teams/new">Add New Team</Link>
+      {currentUser && <Link to="/teams/new">Add New Team</Link>}
       {loading ? (
         <Loading />
       ) : (
@@ -53,15 +61,22 @@ function Teams() {
                         View
                       </button>
                     </Link>
-
-                    <Link to={`/teams/${team.id}/edit`}>
-                      <button type="button" className="btn-edit">
-                        Edit
+                    {currentUser && (
+                      <Link to={`/teams/${team.id}/edit`}>
+                        <button type="button" className="btn-edit">
+                          Edit
+                        </button>
+                      </Link>
+                    )}
+                    {currentUser && (
+                      <button
+                        type="button"
+                        className="btn-delete"
+                        onClick={() => handleDelete(team)}
+                      >
+                        Delete
                       </button>
-                    </Link>
-                    <button type="button" className="btn-delete" onClick={() => handleDelete(team)}>
-                      Delete
-                    </button>
+                    )}
                   </td>
                 </tr>
               ))}
