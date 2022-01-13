@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Home from './views/Home/Home';
 import Auth from './views/Auth/Auth';
 import AddTeam from './views/Teams/AddTeam';
@@ -38,16 +38,26 @@ function App() {
         <Route
           exact
           path="/teams/new"
-          render={(routeProps) => <AddTeam {...routeProps} user={currentUser} />}
+          render={(routeProps) =>
+            currentUser ? (
+              <AddTeam {...routeProps} user={currentUser} />
+            ) : (
+              <Redirect to="/sign-in" />
+            )
+          }
         />
         <Route
           exact
           path="/teams/:id"
           render={(routeProps) => <Team {...routeProps} user={currentUser} />}
         />
-        <Route exact path="/teams/:id/edit">
-          <EditTeam user={currentUser} />
-        </Route>
+        <Route
+          exact
+          path="/teams/:id/edit"
+          render={() =>
+            currentUser ? <EditTeam user={currentUser} /> : <Redirect to="/sign-in" />
+          }
+        />
         <Route>
           <NotFound />
         </Route>
