@@ -12,11 +12,11 @@ function AddTeam() {
 
   const onChange = ({ target }) => {
     switch (target.name) {
-      case 'Name':
+      case 'name':
         return setName(target.value);
-      case 'City':
+      case 'city':
         return setCity(target.value);
-      case 'State':
+      case 'state':
         return setState(target.value);
       default:
         return false;
