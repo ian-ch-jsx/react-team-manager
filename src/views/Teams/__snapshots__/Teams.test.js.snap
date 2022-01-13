@@ -2,6 +2,11 @@
 
 exports[`should render a list of teams 1`] = `
 <div>
+  <a
+    href="/teams/new"
+  >
+    Add New Team
+  </a>
   <h1>
     Teams
   </h1>
@@ -93,27 +98,6 @@ exports[`should render a list of teams 1`] = `
         <td>
           <a
             href="/teams/1"
-          >
-            <button
-              class="btn-view"
-              type="button"
-            >
-              View
-            </button>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a
-            href="/teams/6"
-          >
-            Yay
-          </a>
-        </td>
-        <td>
-          <a
-            href="/teams/6"
           >
             <button
               class="btn-view"
